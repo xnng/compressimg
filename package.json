@@ -1,0 +1,19 @@
+{
+  "name": "heif-to-jpg-converter",
+  "version": "1.0.0",
+  "description": "将 HEIF 格式图片转换为 JPG 格式",
+  "main": "convert.js",
+  "scripts": {
+    "start": "node convert.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "heic-convert": "^2.1.0",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "@types/heic-convert": "^2.1.0",
+    "@types/node": "^22.15.21"
+  }
+}
