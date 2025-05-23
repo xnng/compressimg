@@ -7,7 +7,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-
 	"github.com/jdeng/goheif"
 )
 
