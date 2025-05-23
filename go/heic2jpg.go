@@ -88,33 +88,10 @@ func convertHeicToJpg(inputPath, outputPath string) error {
 
 	return nil
 }
+// writerSkipper 结构体已移动到 utils.go 文件中
 
-// writerSkipper 用于跳过 EXIF 写入时的文件头
-type writerSkipper struct {
-	w           interface{ Write([]byte) (int, error) }
-	bytesToSkip int
-}
-
-func (w *writerSkipper) Write(data []byte) (int, error) {
-	if w.bytesToSkip <= 0 {
-		return w.w.Write(data)
-	}
-
-	if dataLen := len(data); dataLen < w.bytesToSkip {
-		w.bytesToSkip -= dataLen
-		return dataLen, nil
-	}
-
-	if n, err := w.w.Write(data[w.bytesToSkip:]); err == nil {
-		n += w.bytesToSkip
-		w.bytesToSkip = 0
-		return n, nil
-	} else {
-		return n, err
-	}
-}
-
-func main() {
+// heic2jpgMain 是 heic2jpg 功能的主函数
+func heic2jpgMain() {
 	// 检查命令行参数
 	if len(os.Args) < 3 {
 		fmt.Println("error_参数不足，用法: heic2jpg <输入文件.heic> <输出文件.jpg>")
