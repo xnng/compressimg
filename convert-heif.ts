@@ -180,7 +180,7 @@ export async function convertHeifToImage(
 // 使用示例
 async function example() {
   const result = await convertHeifToImage(
-    './input.heic',
+    './input2.heic',
     './output.png',
     {
       format: 'PNG',
